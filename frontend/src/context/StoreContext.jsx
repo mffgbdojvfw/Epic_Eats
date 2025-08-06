@@ -378,6 +378,9 @@ const StoreContextProvider = (props) => {
   const [food_list, setfood_list] = useState([]);
   const [fav, setfav] = useState([]);
 
+  // ✅ Ensure correct base URL for both dev and prod
+  const url = import.meta.env.VITE_BACKEND_URL || process.env.REACT_APP_API_URL || 'http://localhost:4300';
+
   const addtoCart = async (ind) => {
     if (!cartitems[ind]) {
       setcartitems((prev) => ({ ...prev, [ind]: 1 }));
@@ -387,13 +390,11 @@ const StoreContextProvider = (props) => {
 
     if (token) {
       try {
-        await API.post(
-          '/api/cart/add',
-          { itemid: ind },
-          { headers: { Authorization: token } }
-        );
+        await API.post('/api/cart/add', { itemid: ind }, {
+          headers: { Authorization: token }
+        });
       } catch (error) {
-        console.error('Error adding to cart:', error.response ? error.response.data : error.message);
+        console.error('Error adding to cart:', error.message);
       }
     }
   };
@@ -404,33 +405,50 @@ const StoreContextProvider = (props) => {
     }
   };
 
+  // ✅ Returns formatted INR value for UI
   const getTotalAmount = () => {
     let total = 0;
     try {
-      for (let item in cartitems) {
-        if (cartitems[item] > 0) {
-          let product = food_list.find((p) => p._id === item);
-          if (product) {
-            total += product.price * cartitems[item] * 80;
-          }
+      for (let itemId in cartitems) {
+        const qty = cartitems[itemId];
+        const product = food_list.find(p => p._id === itemId);
+        if (qty > 0 && product) {
+          total += product.price * qty * 80;
         }
       }
-    } catch (error) {
-      console.error('Error in getTotalAmount:', error);
+    } catch (err) {
+      console.error('Error calculating total:', err);
     }
-    return total; // ✅ Return as number (not string)
+
+    return total.toLocaleString('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 2,
+    });
   };
 
+  // ✅ Returns float number (for math)
   const getplainAmount = () => {
-    const total = getTotalAmount();
-    return parseFloat(total).toFixed(2); // for plain numeric value
+    let total = 0;
+    try {
+      for (let itemId in cartitems) {
+        const qty = cartitems[itemId];
+        const product = food_list.find(p => p._id === itemId);
+        if (qty > 0 && product) {
+          total += product.price * qty * 80;
+        }
+      }
+    } catch (err) {
+      console.error('Error calculating plain total:', err);
+    }
+    return Number(total).toFixed(2); // safe for math
   };
 
   const favorite = (ind) => {
     setfav((prevFav) => {
       const newItem = cartitems[ind];
-      if (prevFav.includes(newItem)) return prevFav;
-      return [...prevFav, newItem];
+      if (!prevFav.includes(newItem)) return [...prevFav, newItem];
+      return prevFav;
     });
   };
 
@@ -450,12 +468,13 @@ const StoreContextProvider = (props) => {
   const fetchFoodList = async () => {
     try {
       const response = await API.get('/api/food/list');
-      setfood_list(response.data.data);
-    } catch (error) {
-      console.error('Error fetching food list:', error.message);
+      setfood_list(response.data.data || []);
+    } catch (err) {
+      console.error('Error fetching food list:', err.message);
     }
   };
 
+  // ✅ localStorage persistence
   useEffect(() => {
     localStorage.setItem('favourites', JSON.stringify(fav));
   }, [fav]);
@@ -469,14 +488,12 @@ const StoreContextProvider = (props) => {
   }, [cartitems]);
 
   useEffect(() => {
-    const loadData = async () => {
+    const load = async () => {
       await fetchFoodList();
       const savedToken = localStorage.getItem('token');
-      if (savedToken) {
-        setToken(savedToken);
-      }
+      if (savedToken) setToken(savedToken);
     };
-    loadData();
+    load();
   }, []);
 
   const contextValue = {
@@ -485,10 +502,10 @@ const StoreContextProvider = (props) => {
     setcartitems,
     addtoCart,
     removefromCart,
-    getTotalAmount,   // ✅ returns number
-    getplainAmount,
+    getTotalAmount,
     token,
     setToken,
+    getplainAmount,
     userId,
     setUserId,
     address,
@@ -496,6 +513,7 @@ const StoreContextProvider = (props) => {
     handleLogout,
     favorite,
     fav,
+    url, // ✅ for image rendering
   };
 
   return (
@@ -506,3 +524,4 @@ const StoreContextProvider = (props) => {
 };
 
 export default StoreContextProvider;
+
