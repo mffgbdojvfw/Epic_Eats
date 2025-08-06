@@ -214,17 +214,17 @@ const Cart = () => {
             <div className='cart-items-total'>
               <div className="cart-total-details">
                 <p>Subtotal</p>
-                <p>${subtotal.toFixed(2)}</p>
+                <p>₹{subtotal.toFixed(2)}</p>
               </div>
               <hr />
               <div className="cart-total-details">
                 <p>Delivery Fee</p>
-                <p>${deliveryFee.toFixed(2)}</p>
+                <p>₹{deliveryFee.toFixed(2)}</p>
               </div>
               <hr />
               <div className="cart-total-details">
                 <p><strong>Total</strong></p>
-                <p><strong>${total.toFixed(2)}</strong></p>
+                <p><strong>₹{total.toFixed(2)}</strong></p>
               </div>
             </div>
             <Link to="/order">
