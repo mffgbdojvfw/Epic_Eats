@@ -1,81 +1,4 @@
 
-// import React, { useState } from 'react';
-// import './signin.css';
-// import Navbar from './Navbar' 
-// import img from "./img1.jpg"
-// import logo from "./Logo.png"
-// import {Link} from "react-router-dom"
-
-// const SignIn = () => {
-//     const [email, setEmail] = useState('');
-//     const [password, setPassword] = useState('');
-//     const [vis , setvis] = useState(true)
-
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
-//         // Handle sign in logic here
-//         console.log('Email:', email);
-//         console.log('Password:', password);
-//     };
-
-//     const eye =()=>{
-//      setvis(!vis)
-//     }
-
-
-
-//     return (
-//         <>
-//         <div className="cont">
-//             <img src={logo} alt="" />
-//             <Link to="/"><span class="material-symbols-outlined">
-// cancel
-// </span></Link>
-//         </div>
-
-//         <div className="signin-container">
-//             <div className="image">
-//                 <img src={img} alt="" />
-//             </div>
-//             <form className="signin-form" onSubmit={handleSubmit}>
-//                 <div className="head">
-//                 <h2>Welcome To Foodeli</h2>
-//                 <p>please login with your details here</p>
-//                 </div>
-//                 <div className="form-group">
-//                     <label htmlFor="email">Email:</label>
-//                     <input
-//                         type="email"
-//                         id="email"
-//                         value={email}
-//                         onChange={(e) => setEmail(e.target.value)}
-//                         placeholder='Enter your email adress'
-//                         required 
-//                     />
-//                 </div>
-//                 <div className="form-group">
-//                     <label htmlFor="password">Password:</label>
-//                     <input
-//                         type={vis? "password":"text"}
-//                         id="password"
-//                         value={password}
-//                         onChange={(e) => setPassword(e.target.value)}
-//                         placeholder='Enter your password'
-//                         required
-//                     />
-//                    <span class="material-symbols-outlined" onClick={eye()}>
-//                    visibility</span>
-//                 </div>
-//                 <div className="forgot"><Link to="/">Forgot password?</Link></div>
-//                 <button type="submit">Sign In</button>
-//                 <p className='ch'>don't have an account?<Link to="/signup">Signup</Link></p>
-//             </form>
-//         </div>
-//         </>
-//     );
-// };
-
-// export default SignIn;
 
 
 import React, { useState } from 'react';
@@ -87,6 +10,8 @@ import axios from "axios"
 import { StoreContext } from '../../context/StoreContext';
 import { useContext } from 'react';
 import {toast} from "react-toastify"
+import API from "../../api.js"
+
 
 
 const SignIn = () => {
@@ -99,7 +24,6 @@ const SignIn = () => {
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
   const [vis, setvis] = useState(false);
-  const url = "http://localhost:4300"
   const navigate = useNavigate()
   
   
@@ -107,7 +31,7 @@ const SignIn = () => {
     event.preventDefault();
     try{
 
-      const response = await axios.post(`${url}/api/user/login`,data)
+      const response = await API.post("/api/user/login",data)
       if(response.data.success){
        navigate("/")
       toast.success("Loged In successfully")

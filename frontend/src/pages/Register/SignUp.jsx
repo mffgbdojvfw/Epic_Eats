@@ -7,6 +7,7 @@ import {Link,Navigate,useNavigate} from "react-router-dom"
 import axios from "axios"
 import {toast} from "react-toastify"
 import { StoreContext } from '../../context/StoreContext';
+import API from "../../api.js"
 const SignUp = () => {
     const [data,setdata] = useState({
         name:"",
@@ -35,13 +36,12 @@ const SignUp = () => {
 
 
 
-const url = `http://localhost:4300`
 
 
 
 const onSignup = async(evt)=>{
 evt.preventDefault()
-const response = await axios.post(`${url}/api/user/register`,data)
+const response = await API.post("/api/user/register",data)
 
     //  const response = await axios.post(`${url}/api/user/register`,data)
     if(response.data.success){

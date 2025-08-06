@@ -4,6 +4,7 @@ import "./myorder.css"
 import img from "./parcel_icon.png"
 import axios from 'axios';
 import Navbar from '../../components/Navbar';
+import API from "../../api.js"
 const Myorders = () => {
   const[data,setdata] = useState([])
   const {token,url,getTotalAmount,userId} = useContext(StoreContext)
@@ -12,7 +13,7 @@ const Myorders = () => {
   const fetchOrders = async() =>{
    
     try {
-      const response = await axios.post(`${url}/api/order/myorders`, {userId}, { headers: { token } });
+      const response = await API.post("/api/order/myorders", {userId}, { headers: { token } });
       setdata(response.data.data);
       console.log('Fetched Orders:', response.data.data);
     } catch (error) {

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import API from "../../api.js"
 
 export const StoreContext = createContext(null)
 
@@ -31,7 +32,7 @@ const StoreContextProvider = (props) =>{
         try {
           console.log("Sending payload: ", { ind });
     
-          const response = await axios.post(url + "/api/cart/add", { itemid: ind }, { headers: { Authorization: token } });
+          const response = await API.post("/api/cart/add", { itemid: ind }, { headers: { Authorization: token } });
           console.log("Add to cart response: ", response.data);
         } catch (error) {
           console.error("Error adding to cart: ", error.response ? error.response.data : error.message);
@@ -122,13 +123,7 @@ const StoreContextProvider = (props) =>{
     };
 
 
-    // const handleLogin = (token, userId) => {
-    //   setToken(token);
-    //   setUserId(userId);
-    //   // Fetch or restore cart items for the user from backend or localStorage
-    //   const storedCartItems = JSON.parse(localStorage.getItem('cartitems')) || {};
-    //   setcartitems(storedCartItems);
-    // };
+  
 
     const storedCartItems = JSON.parse(localStorage.getItem('cartitems')) || {};
 
