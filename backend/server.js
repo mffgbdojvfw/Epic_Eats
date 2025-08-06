@@ -13,14 +13,15 @@ require("dotenv").config()
 const app = express()
 const port = process.env.PORT||4300
 
-//middleware
-app.use(express.json())
+app.use(express.json());
 
-const allowedOrigins = ['https://epic-eats-one.vercel.app'];
+const allowedOrigins = [
+  'https://epic-eats-one.vercel.app',
+  'https://epic-eats-ao4o.vercel.app'
+];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl) or from Vercel
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
