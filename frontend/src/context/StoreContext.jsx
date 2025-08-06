@@ -405,27 +405,24 @@ const StoreContextProvider = (props) => {
     }
   };
 
-  // ✅ Returns formatted INR value for UI
-  const getTotalAmount = () => {
-    let total = 0;
-    try {
-      for (let itemId in cartitems) {
-        const qty = cartitems[itemId];
-        const product = food_list.find(p => p._id === itemId);
-        if (qty > 0 && product) {
-          total += product.price * qty * 80;
+const getTotalAmount = () => {
+  let total = 0;
+  try {
+    for (let item in cartitems) {
+      if (cartitems[item] > 0) {
+        let amountinfo = food_list.find((product) => product._id === item);
+        if (amountinfo) {
+          total += amountinfo.price * cartitems[item] * 80;
         }
       }
-    } catch (err) {
-      console.error('Error calculating total:', err);
     }
+  } catch (error) {
+    console.error('Error in getTotalAmount:', error);
+  }
 
-    return total.toLocaleString('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 2,
-    });
-  };
+  return total; // return number only
+};
+
 
   // ✅ Returns float number (for math)
   const getplainAmount = () => {
