@@ -1,0 +1,104 @@
+
+.sidebar{
+    position: fixed;
+    left:0;
+    z-index:100;
+}
+
+.navbar{
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+
+.my-orders-order{
+    display: flex;
+    column-gap:130px;
+    align-items: center;
+    border:2px solid rgb(226, 106, 9);
+    max-height:300px;
+   width:1100px;
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+.container3{
+display: flex;
+flex-direction: column;
+align-items:center;
+justify-content: center;
+gap:40px;
+margin-top:20px;
+margin-left: 300px;
+margin-top:40px;
+
+}
+
+
+.my-orders-order p span{
+    width:500px;
+    text-align: center;
+     
+}
+
+
+
+
+.my-order{
+    translate: 0 10px;
+    width:100px;
+}
+
+.same{
+    color:rgb(66, 66, 66);
+}
+
+
+.my-orders-order select{
+    width:130px;
+    height:30px;
+    padding-left:10px;
+    padding-right:10px;
+    /* background-color: white; */
+    border: 2px solid black;
+    border-radius:5px;
+}
+
+
+ .my-orders h2{
+  margin-left: 300px;
+  translate:0 25px;
+ }
+
+ .address{
+    margin-top: 10px;
+    color:rgb(120, 120, 120);
+ }
+ .order-user-phone{
+    margin-top: 10px;
+    color:rgb(120, 120, 120);
+ }
+
+ .order-item-name{
+    color:black;
+ }
+
+ .all-info{
+    display:flex;
+    flex-direction: column;
+ }
+
+ .processing {
+    background-color: rgb(255, 64, 0);
+  }
+  
+  .out-for-delivery {
+    background-color: orange;
+  }
+  
+  .received {
+    background-color:#17B169;
+  }

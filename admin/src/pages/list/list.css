@@ -1,0 +1,111 @@
+.list{
+    width:1200px;
+    height:1200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+    margin-top:100px;
+    margin-left: 200px;
+}
+
+
+.food-lists{
+    width:900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap:5px;
+    column-gap:100px;
+    box-sizing: border-box;
+    border:1px solid rgb(68, 68, 68);
+    border-bottom:none;
+    padding: 0;
+    margin:0; 
+}
+
+.food-lists-heading{
+    width:900px;
+    display: flex;
+    column-gap:130px;
+    align-items: center;
+    border-bottom:1px solid rgb(68, 68, 68);
+    color: rgb(68, 68, 68);
+}
+
+.food-lists-heading b{
+    width:70px;
+    height:50px;
+   margin-left:15px;
+   display: flex;
+   align-items: center;
+}
+
+.list-img{
+    width:60px;
+    height:40px;
+}
+
+.name-heading{
+    translate:-10px;
+}
+
+.list-items{
+    width:900px;
+    display: flex;
+    column-gap:130px;
+    align-items: center;
+    justify-content: center;
+    border-bottom:1px solid rgb(68, 68, 68);
+    color: rgb(68, 68, 68);
+}
+
+.list-items p{
+    height:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width:80px;
+}
+
+
+.list-remove{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    cursor: pointer;
+}
+.remove-list-cont{
+    width:50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prise{
+    translate:-15px;
+}
+
+.all-food-list{
+    margin-right:auto;
+    margin-left:150px;
+    font-size:20px;
+    color: rgb(68, 68, 68);
+}
+
+
+.sidebar{
+    position: fixed;
+    left:0;
+    z-index:100;
+}
+
+.navbar{
+position:sticky;
+top:0;
+z-index:1000;
+}
+

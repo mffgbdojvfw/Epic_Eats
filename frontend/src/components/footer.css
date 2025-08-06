@@ -1,0 +1,88 @@
+body{
+    overflow-x: hidden;
+}
+
+.footer-container{
+    background-color: rgb(48, 47, 47);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height:300px;
+    color:rgb(188, 187, 187);
+    width:100%;
+    overflow-x: hidden;
+    position: sticky;
+    bottom:0;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.footer-menus ul li a{
+    color:rgb(188, 187, 187);
+    text-decoration: none;
+}
+
+.footer-menus ul li{
+    list-style: none;
+}
+
+.footer-contents{
+    display:flex;
+    flex-direction: column;
+    width:550px;
+    justify-content: center;
+    margin-left:60px;
+}
+
+.logos{
+    width:550px;
+    display:flex;
+    column-gap:20px;
+}
+.footer-menus{
+    display: flex;
+    row-gap: 10px;
+    flex-direction: column;
+    justify-content:start;
+    align-items: flex-start;
+}
+
+.footer-menus ul{
+    display: flex;
+    flex-direction: column;
+    row-gap:10px;
+}
+.contact ul li a{
+    color:rgb(188, 187, 187);
+    text-decoration: none;
+}
+
+.contact ul li{
+    list-style: none;
+}
+
+.contact ul{
+    display: flex;
+    flex-direction: column;
+    row-gap:10px;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap:10px;
+    margin-right:140px;
+    translate:0 -34px;
+}
+
+.contact h3{
+color:white;
+font-size:x-large;
+font-weight: 600;
+}
+.footer-menus h3{
+    color: white;
+    font-size:x-large;
+font-weight: 600;
+}

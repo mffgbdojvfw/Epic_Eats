@@ -1,0 +1,84 @@
+body{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.my-orders{
+  margin-top:130px;
+}
+.my-orders-order{
+    display: flex;
+    align-items: center;
+    border:2px solid rgb(226, 106, 9);
+    max-height:240px;
+    width:1100px;
+    padding-left:30px;
+    padding-right:30px;
+    padding-top: 30px;
+    padding-bottom:30px;
+}
+
+.container3{
+display: flex;
+flex-direction: column;
+align-items:center;
+justify-content: center;
+gap:40px;
+margin-top:20px;
+
+}
+
+.my-orders-order li{
+    font-weight: bold;
+    margin-left:70px;
+}
+
+.items-name{
+    width:300px;
+    font-size:16px;
+    color:rgb(86, 86, 86);
+    margin-left:40px;
+}
+
+
+
+
+.my-order{
+    translate: 0 10px;
+    width:100px;
+}
+
+.same{
+translate:0px 8px;
+margin-left:70px;
+}
+
+.my-orders-order button{
+    border: none;
+    background-color: rgb(255, 60, 0);
+    color:white;
+    width:100px;
+    height:30px;
+    border-radius:8px;
+    margin-left:70px;
+}
+ .my-orders-order button:hover{
+    background-color: red;
+ }
+
+ .my-orders h2{
+  margin-left: 175px;
+  font-size:28px;
+  font-weight:bold;
+ }
+
+ .processing {
+    color: red;
+  }
+  
+  .out-for-delivery {
+    color: orange;
+  }
+  
+  .received {
+    color: green;
+  }

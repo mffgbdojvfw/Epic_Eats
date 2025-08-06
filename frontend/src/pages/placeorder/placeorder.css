@@ -1,0 +1,81 @@
+body {
+margin: 0;
+padding: 0;
+
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 50px;
+    margin-top:100px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap:20px;
+}
+.form-group h2{
+    font-size:28px;
+    font-weight: bold;
+}
+
+.addres-btn{
+    width:200px;
+    height:35px;
+    background-color:rgb(255,116,0);
+    color:black;
+    border:none;
+    border-radius:5px;
+    margin-top: 10px;
+}
+.addres-btn:hover{
+    background-color:rgb(255, 98, 0);
+}
+
+
+.inputfield {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height:35px;
+}
+
+.inputfield:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.side-by-side {
+    display: flex;
+    justify-content: space-between;
+    column-gap:20px;
+    width:100%;
+}
+
+.input-container {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-container:last-child {
+    margin-right: 0;
+}
+
+
+.bill{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-left:120px;
+}
