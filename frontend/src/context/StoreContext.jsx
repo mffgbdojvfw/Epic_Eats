@@ -379,7 +379,7 @@ const StoreContextProvider = (props) => {
   const [fav, setfav] = useState([]);
 
   // ✅ Ensure correct base URL for both dev and prod
-  const url = import.meta.env.VITE_BACKEND_URL || process.env.REACT_APP_API_URL || 'http://localhost:4300';
+ const url = process.env.REACT_APP_API_URL || 'http://localhost:4300';
 
   const addtoCart = async (ind) => {
     if (!cartitems[ind]) {
