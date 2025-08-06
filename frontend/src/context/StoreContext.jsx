@@ -190,7 +190,7 @@
 
 
 import React, { createContext, useState, useEffect } from 'react';
-import API from '../../api.js';
+import API from '../api';
 
 export const StoreContext = createContext(null);
 

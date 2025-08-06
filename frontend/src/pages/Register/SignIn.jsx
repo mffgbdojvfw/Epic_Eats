@@ -140,7 +140,7 @@ import img from './img1.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 import { toast } from 'react-toastify';
-import API from '../../api.js';
+import API from '../../api';
 
 const SignIn = () => {
   const [data, setData] = useState({ email: '', password: '' });
