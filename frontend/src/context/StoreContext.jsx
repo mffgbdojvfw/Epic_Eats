@@ -378,9 +378,6 @@ const StoreContextProvider = (props) => {
   const [food_list, setfood_list] = useState([]);
   const [fav, setfav] = useState([]);
 
-  // ✅ Dynamic base URL for image access
-  const url = process.env.REACT_APP_API_URL || 'http://localhost:4300';
-
   const addtoCart = async (ind) => {
     if (!cartitems[ind]) {
       setcartitems((prev) => ({ ...prev, [ind]: 1 }));
@@ -390,17 +387,14 @@ const StoreContextProvider = (props) => {
 
     if (token) {
       try {
-        const response = await API.post(
+        await API.post(
           '/api/cart/add',
           { itemid: ind },
           { headers: { Authorization: token } }
         );
-        console.log('Add to cart response: ', response.data);
       } catch (error) {
-        console.error('Error adding to cart: ', error.response ? error.response.data : error.message);
+        console.error('Error adding to cart:', error.response ? error.response.data : error.message);
       }
-    } else {
-      console.error('No token available');
     }
   };
 
@@ -415,38 +409,21 @@ const StoreContextProvider = (props) => {
     try {
       for (let item in cartitems) {
         if (cartitems[item] > 0) {
-          let amountinfo = food_list.find((product) => product._id === item);
-          if (amountinfo) {
-            total += amountinfo.price * cartitems[item] * 80;
+          let product = food_list.find((p) => p._id === item);
+          if (product) {
+            total += product.price * cartitems[item] * 80;
           }
         }
       }
     } catch (error) {
       console.error('Error in getTotalAmount:', error);
     }
-
-    return total.toLocaleString('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 2,
-    });
+    return total; // ✅ Return as number (not string)
   };
 
   const getplainAmount = () => {
-    let total = 0;
-    try {
-      for (let item in cartitems) {
-        if (cartitems[item] > 0) {
-          let amountinfo = food_list.find((product) => product._id === item);
-          if (amountinfo) {
-            total += amountinfo.price * cartitems[item] * 80;
-          }
-        }
-      }
-    } catch (error) {
-      console.error('Error in getplainAmount:', error);
-    }
-    return parseFloat(total).toFixed(2);
+    const total = getTotalAmount();
+    return parseFloat(total).toFixed(2); // for plain numeric value
   };
 
   const favorite = (ind) => {
@@ -497,8 +474,6 @@ const StoreContextProvider = (props) => {
       const savedToken = localStorage.getItem('token');
       if (savedToken) {
         setToken(savedToken);
-      } else {
-        console.log('no token found in localstorage');
       }
     };
     loadData();
@@ -510,10 +485,10 @@ const StoreContextProvider = (props) => {
     setcartitems,
     addtoCart,
     removefromCart,
-    getTotalAmount,
+    getTotalAmount,   // ✅ returns number
+    getplainAmount,
     token,
     setToken,
-    getplainAmount,
     userId,
     setUserId,
     address,
@@ -521,11 +496,13 @@ const StoreContextProvider = (props) => {
     handleLogout,
     favorite,
     fav,
-    url, // ✅ provide url for frontend image access
   };
 
-  return <StoreContext.Provider value={contextValue}>{props.children}</StoreContext.Provider>;
+  return (
+    <StoreContext.Provider value={contextValue}>
+      {props.children}
+    </StoreContext.Provider>
+  );
 };
 
 export default StoreContextProvider;
-
