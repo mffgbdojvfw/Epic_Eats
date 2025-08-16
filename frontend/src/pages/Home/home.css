@@ -198,7 +198,7 @@ html, body {
 #home-section {
   width: 100vw;
   height: 100vh;
-  background-image: url('./home1.jpg'); /* Ensure image is in public folder */
+  background-image: url('/home1.jpg'); /* Ensure image is in public folder */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -245,9 +245,10 @@ html, body {
 /* 4. Explore Menu Section */
 .explore-container {
   width: 100%;
-  max-width: 1200px; /* Limit max width for large screens */
-  margin: 0 auto; /* Center the container */
   padding: 2rem 0;
+  /* Optional max-width for centering */
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Heading aligned to left */
@@ -273,13 +274,13 @@ html, body {
 /* 6. Food Display Grid */
 .display {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   width: 100%;
-  padding: 1rem 0;
-  justify-items: center; /* Center grid items */
+  padding: 1rem 2rem;
   overflow-x: hidden;
   word-break: break-word;
+  box-sizing: border-box;
 }
 
 /* Prevent grid item overflow */
@@ -325,13 +326,17 @@ html, body {
 }
 
 /* 10. Responsive Design */
-@media (max-width: 1000px) {
-  .suchna {
-    width: 300px;
-    padding: 1rem;
+@media (min-width: 900px) {
+  .display {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem 2rem;
   }
-  .suchna p {
-    font-size: clamp(1.2rem, 5vw, 2.2rem);
+}
+
+@media (max-width: 1000px) {
+  .display {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem 1rem;
   }
 }
 
@@ -363,10 +368,13 @@ html, body {
   }
 }
 
-/* Optional: Force 3 columns on wider screens for better layout */
-@media (min-width: 900px) {
-  .display {
-    grid-template-columns: repeat(3, 1fr);
+@media (max-width: 1000px) {
+  .suchna {
+    width: 300px;
+    padding: 1rem;
+  }
+  .suchna p {
+    font-size: clamp(1.2rem, 5vw, 2.2rem);
   }
 }
 
