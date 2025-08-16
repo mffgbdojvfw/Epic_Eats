@@ -199,7 +199,7 @@ html, body {
 #home-section {
   width: 100vw;
   height: 100vh;
-  background-image: url('./home1.jpg'); /* Make sure the path is correct */
+  background-image: url('/home1.jpg'); /* Make sure the path is correct */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
