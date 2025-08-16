@@ -1,14 +1,7 @@
-
+/* 
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color:white;
-    /* background-image:url("back14.jpg");
-    background-attachment:fixed;
-    background-size: cover;
-    position: relative;
-    backdrop-filter:0px;
-    margin: 0;
-    padding: 0; */
 }
 
 
@@ -172,4 +165,204 @@ margin-left:-12px;
         height:40px;
         text-align: center;
     }
-   }
+   } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #fff;
+}
+
+/* 2. Hero Section */
+#home-section {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./home1.jpg'); /* Make sure the path is correct */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* align to the left */
+  padding-left: 2rem;
+}
+
+/* 3. Intro Box */
+.suchna {
+  position: relative;
+  z-index: 2;
+  width: 500px;
+  max-width: 90vw;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  padding: 2rem;
+  animation: animate 1.5s ease-in-out 0.5s 1 forwards;
+  text-align: center;
+}
+
+.suchna p {
+  font-size: clamp(1.5rem, 8vw, 3.5rem);
+  color: whitesmoke;
+  margin-bottom: 1rem;
+}
+
+.view {
+  width: clamp(100px, 20vw, 200px);
+  height: clamp(40px, 7vw, 60px);
+  background: white;
+  color: black;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.view:hover {
+  background: rgb(255,116,0);
+  color: white;
+}
+
+/* 4. Explore Menu Section */
+.explore-container {
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+/* Heading aligned to left */
+.expl {
+  margin-top: 30px;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: bold;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+/* 5. Category Buttons aligned to left */
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* 6. Food Display Grid */
+.display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+  overflow-x: hidden;
+  justify-items: start; /* align items to the start of grid cell */
+}
+
+/* Prevent grid item overflow */
+.display > * {
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Ensure images/text in cards don't overflow */
+.display img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.display {
+  word-break: break-word;
+}
+
+/* 7. Download Section */
+.Download {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+}
+
+/* 8. Footer Section */
+.Footer {
+  background-color: #333;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* 9. Animation */
+@keyframes animate {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.98);
+    filter: blur(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* 10. Responsive Design */
+@media (max-width: 1000px) {
+  .suchna {
+    width: 300px;
+    padding: 1rem;
+  }
+  .suchna p {
+    font-size: clamp(1.2rem, 5vw, 2.2rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .suchna {
+    width: 90vw;
+    padding: 1rem;
+  }
+  .suchna p {
+    font-size: clamp(1rem, 7vw, 1.5rem);
+  }
+  .view {
+    width: 100px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+  .expl {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+  .category {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1rem;
+  }
+  .display {
+    grid-template-columns: 1fr;
+    padding: 0.5rem 1rem;
+  }
+}
