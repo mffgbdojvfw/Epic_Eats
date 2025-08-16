@@ -96,74 +96,70 @@
 
 
 
-
-
-import React, { useRef, useState } from 'react';
-import Navbar from '../../components/Navbar';
-import Explore_menu from '../../components/Explore_menu';
-import Food_display from '../../components/Food_display';
-import Footer from '../../components/Footer';
-import Download_app from '../../components/Download_app';
-import './home.css';
+import React from "react";
+import "./home.css";
 
 const Home = () => {
-  const [cate, setcate] = useState("All");
-
-  const exploreMenuRef = useRef(null);
-  const downloadAppRef = useRef(null);
-  const footerRef = useRef(null);
-
-  const scrollToExploreMenu = () => {
-    exploreMenuRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToDownloadApp = () => {
-    downloadAppRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToFooter = () => {
-    footerRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <>
-      <Navbar
-        scrollToExploreMenu={scrollToExploreMenu}
-        scrollToDownloadApp={scrollToDownloadApp}
-        scrollToFooter={scrollToFooter}
-      />
-
-      {/* Hero Section */}
-      <div id="home-section">
-        <div className="suchna">
-          <p>Order your Favorite food here</p>
-          <button className="view" onClick={scrollToFooter}>View Menu</button>
+    <div className="home-container">
+      <section className="hero-section">
+        <div className="hero-text">
+          <h1>Welcome to Our Hospital Management System</h1>
+          <p>
+            Manage patients, doctors, and hospital resources easily and
+            efficiently with our modern system. Designed for both staff and
+            administrators to work seamlessly.
+          </p>
+          <button className="cta-btn">Get Started</button>
         </div>
-      </div>
-
-      {/* Explore Menu Section */}
-      <div ref={footerRef} className="explore-container">
-        <h2 className="expl">Explore Menu</h2>
-        <div className="category">
-          <Explore_menu category={cate} setcategory={setcate} />
+        <div className="hero-image">
+          <img
+            src="https://img.freepik.com/free-vector/hospital-building-concept-illustration_114360-8369.jpg"
+            alt="Hospital Illustration"
+          />
         </div>
-        <div className="display">
-          <Food_display category={cate} />
+      </section>
+
+      <section className="features-section">
+        <h2>Our Features</h2>
+        <div className="features-grid">
+          <div className="feature-card">
+            <img
+              src="https://img.icons8.com/color/96/000000/hospital-room.png"
+              alt="Patients"
+            />
+            <h3>Patient Management</h3>
+            <p>
+              Easily track patient records, appointments, and medical histories
+              in one place.
+            </p>
+          </div>
+          <div className="feature-card">
+            <img
+              src="https://img.icons8.com/color/96/000000/doctor-male.png"
+              alt="Doctors"
+            />
+            <h3>Doctor Directory</h3>
+            <p>
+              View and manage doctor schedules, departments, and specialties
+              quickly.
+            </p>
+          </div>
+          <div className="feature-card">
+            <img
+              src="https://img.icons8.com/color/96/000000/treatment-plan.png"
+              alt="Appointments"
+            />
+            <h3>Appointments</h3>
+            <p>
+              Schedule, update, and track appointments effortlessly for
+              patients and staff.
+            </p>
+          </div>
         </div>
-      </div>
-
-      {/* Download App Section */}
-      <div className="Download" ref={downloadAppRef}>
-        <Download_app />
-      </div>
-
-      {/* Footer */}
-      <div className="Footer">
-        <Footer />
-      </div>
-    </>
+      </section>
+    </div>
   );
 };
 
 export default Home;
-
