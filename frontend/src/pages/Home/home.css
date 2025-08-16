@@ -281,13 +281,12 @@ html, body {
   overflow-x: hidden;
   word-break: break-word;
   box-sizing: border-box;
-  justify-content: flex-start;
 }
 
-.display > * {
+/* .display > * {
   flex: 1 1 calc(33.333% - 1.5rem); /* 3 per row on desktop */
   max-width: calc(33.333% - 1.5rem);
-}
+} */
 
 .display img {
   max-width: 100%;
