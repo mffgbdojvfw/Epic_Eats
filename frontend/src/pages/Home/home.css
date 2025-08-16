@@ -283,6 +283,10 @@ html, body {
   box-sizing: border-box;
 }
 
+.display > * {
+  flex: 1 1 calc(25% - 1.5rem); /* 4 per row on desktop */
+  max-width: calc(25% - 1.5rem);
+}
 
 
 .display img {
