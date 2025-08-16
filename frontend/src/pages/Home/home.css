@@ -180,7 +180,6 @@ margin-left:-12px;
 
 
 
-
 * {
   box-sizing: border-box;
 }
@@ -246,7 +245,6 @@ html, body {
 .explore-container {
   width: 100%;
   padding: 2rem 0;
-  /* Optional max-width for centering */
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -326,21 +324,18 @@ html, body {
 }
 
 /* 10. Responsive Design */
-@media (min-width: 900px) {
-  .display {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 1rem 2rem;
-  }
-}
-
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .display {
     grid-template-columns: repeat(2, 1fr);
-    padding: 1rem 1rem;
+    padding: 1rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
+  .display {
+    grid-template-columns: 1fr;
+    padding: 0.5rem 1rem;
+  }
   .suchna {
     width: 90vw;
     padding: 1rem;
@@ -362,19 +357,4 @@ html, body {
     align-items: flex-start;
     padding-left: 1rem;
   }
-  .display {
-    grid-template-columns: 1fr;
-    padding: 0.5rem 1rem;
-  }
 }
-
-@media (max-width: 1000px) {
-  .suchna {
-    width: 300px;
-    padding: 1rem;
-  }
-  .suchna p {
-    font-size: clamp(1.2rem, 5vw, 2.2rem);
-  }
-}
-
