@@ -115,13 +115,13 @@ margin-left:130px;
   It targets each Food_item inside the list and tells it how much space to take up.
   This creates a responsive column layout.
 */
-.food-display-list > * {
-  /* For a 4-column layout on large screens */
-  flex-basis: calc(25% - 24px); /* (100% / 4) - gap adjustment */
-  min-width: 250px; /* Prevents items from becoming too small */
+/* .food-display-list > * {
+
+  flex-basis: calc(25% - 24px); 
+  min-width: 250px; 
   flex-grow: 1;
 }
-
+ */
 /* --- Responsive Design --- */
 
 /* For Tablets */
