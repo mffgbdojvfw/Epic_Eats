@@ -1,4 +1,4 @@
-/* 
+
 .foods{
     width:100%;
     display: flex;
@@ -81,72 +81,10 @@ margin-left:130px;
     .food-display h2 {
       font-size: 1.5rem;
     }
-  } */
-
-
-
-
-
-/* The main container for the whole section */
-.food-display {
-  width: 100%;
-  max-width: 1400px; /* Set a maximum width */
-  margin: 30px auto; /* The KEY CHANGE: This centers the container */
-  padding: 0 20px;   /* Add some padding for smaller screens */
-  box-sizing: border-box;
-  display:flex;
-  flex-wrap: wrap;
-
-}
-
-.food-display h2 {
-  font-weight: bold;
-  font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
-  margin-bottom: 25px;
-}
-
-/* The grid container itself */
-.food-display-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px; /* A single gap property is cleaner */
-  justify-content: flex-start; /* Aligns items to the start */
-}
-
-/*
-  This is a new, important rule.
-  It targets each Food_item inside the list and tells it how much space to take up.
-  This creates a responsive column layout.
-*/
-/* .food-display-list > * {
-
-  flex-basis: calc(25% - 24px); 
-  min-width: 250px; 
-  flex-grow: 1;
-}
- */
-/* --- Responsive Design --- */
-
-/* For Tablets */
-@media (max-width: 1024px) {
-  .food-display-list > * {
-    /* 3 columns */
-    flex-basis: calc(33.33% - 22px);
   }
-}
 
-/* For smaller tablets and large phones */
-@media (max-width: 768px) {
-  .food-display-list > * {
-    /* 2 columns */
-    flex-basis: calc(50% - 16px);
-  }
-}
 
-/* For small phones */
-@media (max-width: 480px) {
-  .food-display-list > * {
-    /* 1 column */
-    flex-basis: 100%;
-  }
-}
+
+
+
+
