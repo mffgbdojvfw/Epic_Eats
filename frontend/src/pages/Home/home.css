@@ -1,4 +1,4 @@
-/* 
+
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color:white;
@@ -165,7 +165,7 @@ margin-left:-12px;
         height:40px;
         text-align: center;
     }
-   } */
+   }
 
 
 
@@ -177,8 +177,7 @@ margin-left:-12px;
 
 
 
-
-/* 1. Base Reset */
+/* 
 * {
   box-sizing: border-box;
 }
@@ -192,11 +191,11 @@ html, body {
   background-color: #fff;
 }
 
-/* 2. Hero Section */
+
 #home-section {
   width: 100vw;
   height: 100vh;
-  background-image: url('./home1.jpg'); /* Ensure image is in public folder */
+  background-image: url('./home1.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -207,7 +206,6 @@ html, body {
   padding-left: 2rem;
 }
 
-/* 3. Intro Box */
 .suchna {
   position: relative;
   z-index: 2;
@@ -243,7 +241,7 @@ html, body {
   color: white;
 }
 
-/* 4. Explore Menu Section */
+
 .explore-container {
   width: 100%;
   padding: 2rem 0;
@@ -251,7 +249,7 @@ html, body {
   margin: 0 auto;
 }
 
-/* Heading aligned to left */
+
 .expl {
   margin-top: 30px;
   margin-bottom: 1rem;
@@ -261,7 +259,6 @@ html, body {
   margin-left: 1rem;
 }
 
-/* 5. Category Buttons aligned to left */
 .category {
   display: flex;
   flex-wrap: wrap;
@@ -271,7 +268,7 @@ html, body {
   padding-bottom: 1rem;
 }
 
-/* 6. Food Display Flex Wrap Layout */
+
 .display {
   display: flex;
   flex-wrap: wrap;
@@ -286,7 +283,7 @@ html, body {
 .display > * {
   flex: 1 1 calc(25% - 1.5rem);
   max-width: calc(25% - 1.5rem);
-  min-width: 220px; /* prevents flex items from shrinking too small */
+  min-width: 220px; 
   box-sizing: border-box;
 }
 
@@ -298,13 +295,13 @@ html, body {
   object-fit: cover;
 }
 
-/* 7. Download Section */
+
 .Download {
   padding: 2rem 1rem;
   background-color: #f9f9f9;
 }
 
-/* 8. Footer Section */
+
 .Footer {
   background-color: #333;
   color: white;
@@ -312,7 +309,7 @@ html, body {
   text-align: center;
 }
 
-/* 9. Animation */
+
 @keyframes animate {
   from {
     opacity: 0;
@@ -326,17 +323,17 @@ html, body {
   }
 }
 
-/* 10. Responsive Design */
+
 @media (max-width: 768px) {
   .display > * {
-    flex: 1 1 calc(50% - 1.5rem); /* 2 per row on tablets */
+    flex: 1 1 calc(50% - 1.5rem); 
     max-width: calc(50% - 1.5rem);
   }
 }
 
 @media (max-width: 480px) {
   .display > * {
-    flex: 1 1 100%; /* 1 per row on small mobile */
+    flex: 1 1 100%; 
     max-width: 100%;
   }
   .suchna {
@@ -360,4 +357,4 @@ html, body {
     align-items: flex-start;
     padding-left: 1rem;
   }
-}
+} */
